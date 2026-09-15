@@ -1,0 +1,9 @@
+2026-09-15 16:14:31 | [INFO   ] | Приложение запущено
+2026-09-15 16:14:31 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-15 16:14:31 | [WARNING] | Failed. Not a triangle. params: A='10', B='1', C='1'
+2026-09-15 16:14:31 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\VKI\2026дувалин\PTPM\code\main.py", line 37, in calculate_triangle
+    a = float(str_a)
+        ^^^^^^^^^^^^
+ValueError: could not convert string to float: 'abc'
