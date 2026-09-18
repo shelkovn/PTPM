@@ -1,1 +1,17 @@
 2026-09-18 15:45:08 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-18 15:55:53 | [WARNING] | Failed. Not a triangle. params: A='10', B='1', C='1'
+2026-09-18 15:55:53 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\VKI\2026дувалин\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+        ^^^^^^^^^^^^
+ValueError: could not convert string to float: 'abc'
+2026-09-18 15:55:53 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-18 16:12:24 | [WARNING] | Failed. Not a triangle. params: A='10', B='1', C='1'
+2026-09-18 16:12:24 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\VKI\2026дувалин\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+        ^^^^^^^^^^^^
+ValueError: could not convert string to float: 'abc'
+2026-09-18 16:12:24 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
