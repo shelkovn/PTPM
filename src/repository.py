@@ -99,6 +99,7 @@ class TriangleRepository:
     def fetch_by_sides(
         self, side_a: float, side_b: float, side_c: float
     ) -> Optional[Triangle]:
+        query = "SELECT * FROM triangles WHERE side_a = ? AND side_b = ? AND side_c = ?"
         with self._get_connection() as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
