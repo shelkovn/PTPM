@@ -24,10 +24,11 @@ class TriangleRepository:
 
     def __init__(self, db_path: str = ":database:"):
         self.db_path = db_path
+        self._conn = sqlite3.connect(self.db_path)
         self._create_table()
 
     def _get_connection(self):
-        return sqlite3.connect(self.db_path)
+        return self._conn
 
     def _create_table(self):
         """Creates the triangles table if it does not exist."""

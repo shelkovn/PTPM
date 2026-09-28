@@ -31,36 +31,33 @@ class TkinterInterface(UserInterface):
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("get data")
-        self.root.geometry("450x180")
+        self.root.geometry("350x180")
         self.root.resizable(False, False)
 
         self.controller = None
         self._submit_clicked = tk.BooleanVar(value=False)
         self._collected_raw_strings = None
 
-        self.left_frame = tk.Frame(self.root, padx=10, pady=10)
-        self.left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        self.center_frame = tk.Frame(self.root, padx=15, pady=10)
+        self.center_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         
         self.trigger_btn = tk.Button(
-            self.left_frame, 
+            self.center_frame, 
             text="start", 
             command=self._on_start_scenario_click,
             bg="lightyellow"
         )
-        self.trigger_btn.pack(expand=True, fill=tk.BOTH)
--
-        self.center_frame = tk.Frame(self.root, padx=10, pady=10)
-        self.center_frame.pack(side=tk.LEFT, fill=tk.Y)
+        self.trigger_btn.grid(row=0, column=0, columnspan=2, sticky="ew", pady=(0, 10))
         
         self.entries = []
         labels_text = ["side A:", "side B:", "side C:"]
         
         for i, text in enumerate(labels_text):
             lbl = tk.Label(self.center_frame, text=text)
-            lbl.grid(row=i, column=0, sticky="e", pady=2)
+            lbl.grid(row=i+1, column=0, sticky="e", pady=2)
             
             entry = tk.Entry(self.center_frame, width=10, state="disabled")
-            entry.grid(row=i, column=1, pady=2, padx=5)
+            entry.grid(row=i+1, column=1, pady=2, padx=5)
             self.entries.append(entry)
             
         self.submit_btn = tk.Button(
@@ -69,7 +66,7 @@ class TkinterInterface(UserInterface):
             command=self._on_submit_click, 
             state="disabled"
         )
-        self.submit_btn.grid(row=3, column=0, columnspan=2, pady=10)
+        self.submit_btn.grid(row=4, column=0, columnspan=2, pady=10)
         
         self.right_frame = tk.Frame(self.root, padx=10, pady=10)
         self.right_frame.pack(side=tk.RIGHT, fill=tk.BOTH)

@@ -1,7 +1,13 @@
+from user_inputs_getter import UserInterface, TkinterInterface
+from repository import TriangleRepository, Triangle
+from triangle_placer import triangle_placer
+from external_service import ExternalServiceInterface
+
+
 class GeometryController:
     def __init__(
         self, 
-        view: UserInterface, 
+        view: TkinterInterface, 
         repository: TriangleRepository, 
         calculation_service: triangle_placer,
         external_service: ExternalServiceInterface

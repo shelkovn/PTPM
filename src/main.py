@@ -1,5 +1,5 @@
 import logging
-from user_inputs_getter import TkinterInterface
+from user_inputs_getter import UserInterface, TkinterInterface
 from repository import TriangleRepository
 from triangle_placer import triangle_placer
 from external_service import ExternalService
