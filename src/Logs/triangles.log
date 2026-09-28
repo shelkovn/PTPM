@@ -157,3 +157,133 @@ ValueError: could not convert string to float: 'invalid'
 2026-09-20 11:08:07 | [INFO   ] | Success. params: A='7', B='10', C='5' | Type: разносторонний, Coordinates: [(21, 24), (100, 24), (0, 76)]
 2026-09-20 11:08:07 | [INFO   ] | Success. params: A='0.0000000000000000000000000001', B='0.0000000000000000000000000009', C='0.00000000000000000000000000085' | Type: разносторонний, Coordinates: [(69, 0), (82, 0), (18, 100)]
 2026-09-20 11:08:07 | [WARNING] | Failed. Not a triangle. params: A='0', B='0', C='0'
+2026-09-28 11:43:45 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='def', C='ghi'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='9223372036854775807000000000', B='9223372000000000036854775807', C='92000000023372036854775807' | Type: разносторонний, Coordinates: [(0, 50), (100, 50), (0, 50)]
+2026-09-28 11:43:45 | [WARNING] | Failed. Not a triangle. params: A='10', B='5', C='5'
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='10', B='10', C='10' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:43:45 | [WARNING] | Failed. Not a triangle. params: A='10', B='1', C='1'
+2026-09-28 11:43:45 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='10', B='1', C='10' | Type: равнобедренный, Coordinates: [(0, 45), (100, 45), (100, 55)]
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='8', B='5', C='5' | Type: равнобедренный, Coordinates: [(0, 31), (100, 31), (50, 69)]
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='5', B='5', C='8' | Type: равнобедренный, Coordinates: [(0, 13), (78, 13), (100, 88)]
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='100000', B='100000', C='100000' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='0.001', B='0.001', C='0.001' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:43:45 | [WARNING] | Failed. Not a triangle. params: A='3', B='4', C='-5'
+2026-09-28 11:43:45 | [WARNING] | Failed. Not a triangle. params: A='-10', B='-1', C='-10'
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='1', B='1', C='1.41421356' | Type: равнобедренный, Coordinates: [(0, 0), (100, 0), (100, 100)]
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='6', B='8', C='10' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='10', B='20', C='25' | Type: разносторонний, Coordinates: [(7, 0), (60, 0), (93, 100)]
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='7', B='10', C='5' | Type: разносторонний, Coordinates: [(21, 24), (100, 24), (0, 76)]
+2026-09-28 11:43:45 | [INFO   ] | Success. params: A='0.0000000000000000000000000001', B='0.0000000000000000000000000009', C='0.00000000000000000000000000085' | Type: разносторонний, Coordinates: [(69, 0), (82, 0), (18, 100)]
+2026-09-28 11:43:45 | [WARNING] | Failed. Not a triangle. params: A='0', B='0', C='0'
+2026-09-28 11:57:17 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='def', C='ghi'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='9223372036854775807000000000', B='9223372000000000036854775807', C='92000000023372036854775807' | Type: разносторонний, Coordinates: [(0, 50), (100, 50), (0, 50)]
+2026-09-28 11:57:17 | [WARNING] | Failed. Not a triangle. params: A='10', B='5', C='5'
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='10', B='10', C='10' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:57:17 | [WARNING] | Failed. Not a triangle. params: A='0', B='0', C='0'
+2026-09-28 11:57:17 | [WARNING] | Failed. Not a triangle. params: A='10', B='1', C='1'
+2026-09-28 11:57:17 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='10', B='1', C='10' | Type: равнобедренный, Coordinates: [(0, 45), (100, 45), (100, 55)]
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='8', B='5', C='5' | Type: равнобедренный, Coordinates: [(0, 31), (100, 31), (50, 69)]
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='5', B='5', C='8' | Type: равнобедренный, Coordinates: [(0, 13), (78, 13), (100, 88)]
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='100000', B='100000', C='100000' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='0.001', B='0.001', C='0.001' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:57:17 | [WARNING] | Failed. Not a triangle. params: A='3', B='4', C='-5'
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-28 11:57:17 | [WARNING] | Failed. Not a triangle. params: A='-10', B='-1', C='-10'
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='1', B='1', C='1.41421356' | Type: равнобедренный, Coordinates: [(0, 0), (100, 0), (100, 100)]
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='6', B='8', C='10' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='10', B='20', C='25' | Type: разносторонний, Coordinates: [(7, 0), (60, 0), (93, 100)]
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='7', B='10', C='5' | Type: разносторонний, Coordinates: [(21, 24), (100, 24), (0, 76)]
+2026-09-28 11:57:17 | [INFO   ] | Success. params: A='0.0000000000000000000000000001', B='0.0000000000000000000000000009', C='0.00000000000000000000000000085' | Type: разносторонний, Coordinates: [(69, 0), (82, 0), (18, 100)]
+2026-09-28 11:57:17 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:57:17 | [WARNING] | Failed. Not a triangle. params: A='0', B='0', C='0'
+2026-09-28 11:57:39 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='def', C='ghi'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='9223372036854775807000000000', B='9223372000000000036854775807', C='92000000023372036854775807' | Type: разносторонний, Coordinates: [(0, 50), (100, 50), (0, 50)]
+2026-09-28 11:57:39 | [WARNING] | Failed. Not a triangle. params: A='10', B='5', C='5'
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='10', B='10', C='10' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:57:39 | [WARNING] | Failed. Not a triangle. params: A='0', B='0', C='0'
+2026-09-28 11:57:39 | [WARNING] | Failed. Not a triangle. params: A='10', B='1', C='1'
+2026-09-28 11:57:39 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='10', B='1', C='10' | Type: равнобедренный, Coordinates: [(0, 45), (100, 45), (100, 55)]
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='8', B='5', C='5' | Type: равнобедренный, Coordinates: [(0, 31), (100, 31), (50, 69)]
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='5', B='5', C='8' | Type: равнобедренный, Coordinates: [(0, 13), (78, 13), (100, 88)]
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='100000', B='100000', C='100000' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='0.001', B='0.001', C='0.001' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:57:39 | [WARNING] | Failed. Not a triangle. params: A='3', B='4', C='-5'
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-28 11:57:39 | [WARNING] | Failed. Not a triangle. params: A='-10', B='-1', C='-10'
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='1', B='1', C='1.41421356' | Type: равнобедренный, Coordinates: [(0, 0), (100, 0), (100, 100)]
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='6', B='8', C='10' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='10', B='20', C='25' | Type: разносторонний, Coordinates: [(7, 0), (60, 0), (93, 100)]
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='7', B='10', C='5' | Type: разносторонний, Coordinates: [(21, 24), (100, 24), (0, 76)]
+2026-09-28 11:57:39 | [INFO   ] | Success. params: A='0.0000000000000000000000000001', B='0.0000000000000000000000000009', C='0.00000000000000000000000000085' | Type: разносторонний, Coordinates: [(69, 0), (82, 0), (18, 100)]
+2026-09-28 11:57:39 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:57:39 | [WARNING] | Failed. Not a triangle. params: A='0', B='0', C='0'
+2026-09-28 11:58:44 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='def', C='ghi'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='9223372036854775807000000000', B='9223372000000000036854775807', C='92000000023372036854775807' | Type: разносторонний, Coordinates: [(0, 50), (100, 50), (0, 50)]
+2026-09-28 11:58:44 | [WARNING] | Failed. Not a triangle. params: A='10', B='5', C='5'
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='10', B='10', C='10' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:58:44 | [WARNING] | Failed. Not a triangle. params: A='0', B='0', C='0'
+2026-09-28 11:58:44 | [WARNING] | Failed. Not a triangle. params: A='10', B='1', C='1'
+2026-09-28 11:58:44 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='10', B='1', C='10' | Type: равнобедренный, Coordinates: [(0, 45), (100, 45), (100, 55)]
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='8', B='5', C='5' | Type: равнобедренный, Coordinates: [(0, 31), (100, 31), (50, 69)]
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='5', B='5', C='8' | Type: равнобедренный, Coordinates: [(0, 13), (78, 13), (100, 88)]
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='100000', B='100000', C='100000' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='0.001', B='0.001', C='0.001' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-09-28 11:58:44 | [WARNING] | Failed. Not a triangle. params: A='3', B='4', C='-5'
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-28 11:58:44 | [WARNING] | Failed. Not a triangle. params: A='-10', B='-1', C='-10'
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='1', B='1', C='1.41421356' | Type: равнобедренный, Coordinates: [(0, 0), (100, 0), (100, 100)]
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='6', B='8', C='10' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='10', B='20', C='25' | Type: разносторонний, Coordinates: [(7, 0), (60, 0), (93, 100)]
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='7', B='10', C='5' | Type: разносторонний, Coordinates: [(21, 24), (100, 24), (0, 76)]
+2026-09-28 11:58:44 | [INFO   ] | Success. params: A='0.0000000000000000000000000001', B='0.0000000000000000000000000009', C='0.00000000000000000000000000085' | Type: разносторонний, Coordinates: [(69, 0), (82, 0), (18, 100)]
+2026-09-28 11:58:44 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\PTPM\src\my_project.py", line 37, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-09-28 11:58:44 | [WARNING] | Failed. Not a triangle. params: A='0', B='0', C='0'

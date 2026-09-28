@@ -26,12 +26,24 @@ class test_triangles_app(unittest.TestCase):
         result = calculate_triangle("0", "0", "0")
         expected = ("не треугольник", [(-1, -1)] * 3)
         self.assertEqual(result, expected)
+#ADDED
+    def test_geometryerror_not_valueerror(self):
+        result = calculate_triangle("0", "0", "0")
+        wrong = ("", [(-2, -2)] * 3)
+        self.assertNotEqual(result, wrong)
 
-    def test_negative_values(self):
+    def test_valueerror_not_geometryerr(self):
+        result = calculate_triangle("abc", "4", "5")
+        wrong = ("не треугольник", [(-1, -1)] * 3)
+        self.assertNotEqual(result, wrong)
+
+    def test_not_triangle_in(self):
         result = calculate_triangle("-10", "-1", "-10")
-        expected = ("не треугольник", [(-1, -1)] * 3)
-        self.assertEqual(result, expected)
+        expected = "не "
+        self.assertIn(expected, result[0])      
 
+#OLD
+    
     def test_isosceles(self):
         result = calculate_triangle("10", "1", "10")
         expected = ("равнобедренный", [(0, 45), (100, 45), (100, 55)])

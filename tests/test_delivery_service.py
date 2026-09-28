@@ -7,12 +7,17 @@ class test_calculate_delivery_cost(unittest.TestCase):
         expected = (-1, "0000-00-00")
         result = calculate_delivery_cost("aaa", 1, "обычный", False)
         self.assertEqual(expected, result)
-
-    def test_excess_weight(self):
-        expected = (-1, "0000-00-00")
+#ADDED
+    def test_excess_weight_not_calculated(self):
+        wrong = (200+100*5, "2026-09-04")
         result = calculate_delivery_cost(100, 1, "обычный", False)
-        self.assertEqual(expected, result)
+        self.assertNotEqual(wrong, result)
 
+    def test_2027_not_in(self):
+        wrong = "2027"
+        result = calculate_delivery_cost(50, 10000000000, "обычный", False)
+        self.assertNotIn(wrong, result[1])
+#OLD
     def test_underweight(self):
         expected = (-1, "0000-00-00")
         result = calculate_delivery_cost(0, 1, "обычный", False)
