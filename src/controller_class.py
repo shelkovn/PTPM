@@ -58,9 +58,14 @@ class GeometryController:
             
             error_msg = "Not a triangle" if triangle_type == "не треугольник" else None
             new_triangle = Triangle(
-                side_a=a, side_b=b, side_c=c,
-                coord_a=coords, coord_b=coords, coord_c=coords,
-                triangle_type=triangle_type, error_message=error_msg
+                side_a=a,
+                side_b=b,
+                side_c=c,
+                coord_a=coords[0],
+                coord_b=coords[1],
+                coord_c=coords[2], 
+                triangle_type=triangle_type,
+                error_message=error_msg
             )
             try:
                 self.repository.add_triangle(new_triangle)
