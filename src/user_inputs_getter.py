@@ -30,8 +30,8 @@ class UserInterface(ABC):
 class TkinterInterface(UserInterface):
     def __init__(self):
         self.root = tk.Tk()
-        self.root.title("get data")
-        self.root.geometry("350x180")
+        self.root.title("triange 3000 pro edition max")
+        self.root.geometry("350x250")
         self.root.resizable(False, False)
 
         self.controller = None

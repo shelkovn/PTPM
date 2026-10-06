@@ -26,11 +26,11 @@ class GeometryController:
         3. Отправка строки-результата сторонней зависимости.
         4. Отрисовка геометрии и возврат типа операции.
         """
-        print("[Контроллер]: Сценарий запущен.")
+        print("[Controller]: Starting.")
         
         raw_strings = self.view.get_user_data()
         if not raw_strings or len(raw_strings) < 3:
-            msg = "Ввод отменен"
+            msg = "inputs missing!"
             self.view.show_error(msg)
             return msg
             
@@ -73,19 +73,14 @@ class GeometryController:
             except Exception as e:
                 print(f"[Controller]: database error: {e}")
 
-        # Проверка геометрических ошибок на основе сигнатурных флагов [(-1, -1)]
         if triangle_type == "не треугольник" or coords == [(-1, -1)] * 3:
             self.view.show_error("not a triangle!")
-            # 3. Отправка строки-результата сторонней зависимости при ошибке
-            self.external_service.send_result("Ошибка: не треугольник")
+            self.external_service.send_result("Error: invalid triangle")
             return "не треугольник"
 
-        # 4. Вызов метода отрисовки треугольника по полученным координатам
         self.view.draw_triangle(coords, info_text=triangle_type)
         
-        # 3. Отправка строки-результата сторонней зависимости при успехе
         result_string = f"success. type: {triangle_type}"
         self.external_service.send_result(result_string)
         
-        # 5. Метод возвращает результат выполнения операции
         return triangle_type

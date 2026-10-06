@@ -43,3 +43,33 @@ ValueError: could not convert string to float: 'as'
 2026-10-03 14:28:12 | [INFO   ] | Инициализация...
 2026-10-03 14:28:12 | [INFO   ] | Приложение готово к работе. Запуск интерфейса...
 2026-10-03 14:28:18 | [INFO   ] | Success. params: A='11', B='11', C='11' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-10-06 09:09:22 | [INFO   ] | Инициализация...
+2026-10-06 09:09:22 | [INFO   ] | Приложение готово к работе. Запуск интерфейса...
+2026-10-06 09:09:52 | [INFO   ] | Success. params: A='11', B='12', C='13' | Type: разносторонний, Coordinates: [(1, 0), (99, 0), (60, 100)]
+2026-10-06 09:10:37 | [INFO   ] | Success. params: A='5', B='3', C='4' | Type: разносторонний, Coordinates: [(0, 26), (100, 26), (64, 74)]
+2026-10-06 09:10:46 | [INFO   ] | Инициализация...
+2026-10-06 09:10:46 | [INFO   ] | Приложение готово к работе. Запуск интерфейса...
+2026-10-06 09:11:00 | [INFO   ] | Success. params: A='1', B='1', C='1' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-10-06 09:17:57 | [INFO   ] | Инициализация...
+2026-10-06 09:17:57 | [INFO   ] | Приложение готово к работе. Запуск интерфейса...
+2026-10-06 09:18:09 | [ERROR  ] | Failed. Invalid values. params: A='biba', B='biba', C='biba'
+Traceback (most recent call last):
+  File "/home/towa/Documents/VKI/duvalin/PTPM/src/controller_class.py", line 40, in start_new_scenario
+    a = float(str_a.replace(',', '.'))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'biba'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/towa/Documents/VKI/duvalin/PTPM/src/triangle_placer.py", line 41, in calculate_triangle
+    a = float(str_a)
+        ^^^^^^^^^^^^
+ValueError: could not convert string to float: 'biba'
+2026-10-06 09:18:28 | [INFO   ] | Success. params: A='12', B='12', C='12' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-10-06 09:18:54 | [INFO   ] | Инициализация...
+2026-10-06 09:18:54 | [INFO   ] | Приложение готово к работе. Запуск интерфейса...
+2026-10-06 09:19:24 | [INFO   ] | Success. params: A='0.9', B='0.1', C='0.85' | Type: разносторонний, Coordinates: [(0, 45), (100, 45), (94, 55)]
+2026-10-06 09:19:39 | [INFO   ] | Success. params: A='11', B='11', C='11' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
+2026-10-06 09:20:01 | [WARNING] | Failed. Not a triangle. params: A='0', B='0', C='0'
+2026-10-06 09:20:41 | [INFO   ] | Success. params: A='7', B='2', C='8' | Type: разносторонний, Coordinates: [(0, 38), (90, 38), (100, 62)]

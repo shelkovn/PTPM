@@ -7,9 +7,9 @@ from controller_class import GeometryController
 
 def main():
     logger = logging.getLogger("TriangleApp")
-    logger.info("Инициализация...")
+    logger.info("initializing...")
 
-    repository = TriangleRepository(db_path=":memory:") 
+    repository = TriangleRepository(db_path="triangles.db")
     
     view = TkinterInterface()
     calculation_service = triangle_placer()
@@ -22,7 +22,7 @@ def main():
         external_service=external_service
     )
 
-    logger.info("Приложение готово к работе. Запуск интерфейса...")
+    logger.info("starting ui...")
 
     view.run_ui()
 
