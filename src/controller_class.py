@@ -30,37 +30,35 @@ class GeometryController:
         
         raw_strings = self.view.get_user_data()
         if not raw_strings or len(raw_strings) < 3:
-            msg = "inputs missing!"
+            msg = "view error, inputs missing!"
             self.view.show_error(msg)
             return msg
             
         str_a, str_b, str_c = raw_strings
         
-        try:
-            a = float(str_a.replace(',', '.'))
-            b = float(str_b.replace(',', '.'))
-            c = float(str_c.replace(',', '.'))
-        except ValueError:
-            self.calc_service.calculate_triangle(str_a, str_b, str_c)
-            self.view.show_error("Incorrect inputs!")
-            return "Validation failed"
-
-        print(f"[Controller]: searching ({a}, {b}, {c})...")
-        db_triangle = self.repository.fetch_by_sides(a, b, c)
+        print(f"[Controller]: searching by keys ('{str_a}', '{str_b}', '{str_c}')...")
+        db_triangle = self.repository.fetch_by_sides(str_a, str_b, str_c)
 
         if db_triangle:
             print(f"[Controller]: hit (ID: {db_triangle.id}).")
             triangle_type = db_triangle.triangle_type
             coords = [db_triangle.coord_a, db_triangle.coord_b, db_triangle.coord_c]
+            error_msg = db_triangle.error_message
         else:
             print("[Controller]: miss. calculating:")
             triangle_type, coords = self.calc_service.calculate_triangle(str_a, str_b, str_c)
+
+            if coords == [(-2, -2)] * 3:
+                error_msg = "Invalid values (Type Error)"
+            elif triangle_type == "не треугольник" or coords == [(-1, -1)] * 3:
+                error_msg = "Not a triangle (Geometry Error)"
+            else:
+                error_msg = None
             
-            error_msg = "Not a triangle" if triangle_type == "не треугольник" else None
             new_triangle = Triangle(
-                side_a=a,
-                side_b=b,
-                side_c=c,
+                side_a=str_a,
+                side_b=str_b,
+                side_c=str_c,
                 coord_a=coords[0],
                 coord_b=coords[1],
                 coord_c=coords[2], 
@@ -73,11 +71,18 @@ class GeometryController:
             except Exception as e:
                 print(f"[Controller]: database error: {e}")
 
+        #error handling
+        if coords == [(-2, -2)] * 3:
+            self.view.show_error("Incorrect inputs!")
+            self.external_service.send_result("Error: invalid values")
+            return "Validation failed"
+
         if triangle_type == "не треугольник" or coords == [(-1, -1)] * 3:
             self.view.show_error("not a triangle!")
             self.external_service.send_result("Error: invalid triangle")
             return "не треугольник"
 
+        #success
         self.view.draw_triangle(coords, info_text=triangle_type)
         
         result_string = f"success. type: {triangle_type}"

@@ -6,9 +6,9 @@ from typing import Optional, Tuple
 @dataclass
 class Triangle:
     # Sides
-    side_a: float
-    side_b: float
-    side_c: float
+    side_a: str
+    side_b: str
+    side_c: str
     
     coord_a: Tuple[int, int]
     coord_b: Tuple[int, int]
@@ -82,7 +82,7 @@ class TriangleRepository:
             triangle.id = cursor.lastrowid
             return triangle.id
 
-    def delete_by_sides(self, side_a: float, side_b: float, side_c: float) -> bool:
+    def delete_by_sides(self, side_a: str, side_b: str, side_c: str) -> bool:
         query = """
         DELETE FROM triangles 
         WHERE id = (
@@ -98,7 +98,7 @@ class TriangleRepository:
             return cursor.rowcount > 0
     
     def fetch_by_sides(
-        self, side_a: float, side_b: float, side_c: float
+        self, side_a: str, side_b: str, side_c: str
     ) -> Optional[Triangle]:
         query = "SELECT * FROM triangles WHERE side_a = ? AND side_b = ? AND side_c = ?"
         with self._get_connection() as conn:
