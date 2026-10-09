@@ -91,3 +91,30 @@ Traceback (most recent call last):
 ValueError: could not convert string to float: ''
 2026-10-06 09:43:24 | [INFO   ] | Success. params: A='123', B='123', C='123' | Type: равносторонний, Coordinates: [(0, 7), (100, 7), (50, 93)]
 2026-10-06 09:43:37 | [INFO   ] | Success. params: A='5', B='4', C='3' | Type: разносторонний, Coordinates: [(0, 26), (100, 26), (36, 74)]
+2026-10-09 11:10:56 | [INFO   ] | initializing...
+2026-10-09 11:10:57 | [INFO   ] | starting ui...
+2026-10-09 11:10:59 | [INFO   ] | initializing...
+2026-10-09 11:10:59 | [INFO   ] | starting ui...
+2026-10-09 11:11:25 | [INFO   ] | initializing...
+2026-10-09 11:11:25 | [INFO   ] | starting ui...
+2026-10-09 11:18:19 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-10-09 11:18:19 | [WARNING] | Failed. Not a triangle. params: A='1', B='2', C='10'
+2026-10-09 11:18:19 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\dv\PTPM\src\triangle_placer.py", line 41, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-10-09 11:18:55 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-10-09 11:18:55 | [WARNING] | Failed. Not a triangle. params: A='1', B='2', C='10'
+2026-10-09 11:18:55 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\dv\PTPM\src\triangle_placer.py", line 41, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
+2026-10-09 11:19:31 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-10-09 11:19:31 | [WARNING] | Failed. Not a triangle. params: A='1', B='2', C='10'
+2026-10-09 11:19:31 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "C:\Users\SHelkovnikovaAA\dv\PTPM\src\triangle_placer.py", line 41, in calculate_triangle
+    a = float(str_a)
+ValueError: could not convert string to float: 'abc'
