@@ -118,3 +118,35 @@ Traceback (most recent call last):
   File "C:\Users\SHelkovnikovaAA\dv\PTPM\src\triangle_placer.py", line 41, in calculate_triangle
     a = float(str_a)
 ValueError: could not convert string to float: 'abc'
+2026-10-12 11:07:56 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-10-12 11:07:57 | [WARNING] | Failed. Not a triangle. params: A='1', B='2', C='10'
+2026-10-12 11:07:57 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "/home/towa/Documents/VKI/duvalin/PTPM/src/triangle_placer.py", line 41, in calculate_triangle
+    a = float(str_a)
+        ^^^^^^^^^^^^
+ValueError: could not convert string to float: 'abc'
+2026-10-12 11:14:26 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-10-12 11:14:26 | [WARNING] | Failed. Not a triangle. params: A='1', B='2', C='10'
+2026-10-12 11:14:26 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "/home/towa/Documents/VKI/duvalin/PTPM/src/triangle_placer.py", line 41, in calculate_triangle
+    a = float(str_a)
+        ^^^^^^^^^^^^
+ValueError: could not convert string to float: 'abc'
+2026-10-12 11:19:33 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-10-12 11:19:33 | [WARNING] | Failed. Not a triangle. params: A='1', B='2', C='10'
+2026-10-12 11:19:33 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "/home/towa/Documents/VKI/duvalin/PTPM/src/triangle_placer.py", line 41, in calculate_triangle
+    a = float(str_a)
+        ^^^^^^^^^^^^
+ValueError: could not convert string to float: 'abc'
+2026-10-12 11:23:08 | [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
+2026-10-12 11:23:08 | [WARNING] | Failed. Not a triangle. params: A='1', B='2', C='10'
+2026-10-12 11:23:08 | [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'
+Traceback (most recent call last):
+  File "/home/towa/Documents/VKI/duvalin/PTPM/src/triangle_placer.py", line 41, in calculate_triangle
+    a = float(str_a)
+        ^^^^^^^^^^^^
+ValueError: could not convert string to float: 'abc'
