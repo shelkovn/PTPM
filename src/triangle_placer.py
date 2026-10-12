@@ -92,8 +92,3 @@ class triangle_placer:
 
 if __name__ == "__main__":
     logger.info("Приложение запущено")
-    
-    #testing
-    calculate_triangle("3", "4", "5")   # [INFO   ] | Success. params: A='3', B='4', C='5' | Type: разносторонний, Coordinates: [(12, 0), (88, 0), (88, 100)]
-    calculate_triangle("10", "1", "1")  # [WARNING] | Failed. Not a triangle. params: A='10', B='1', C='1'
-    calculate_triangle("abc", "4", "5") # [ERROR  ] | Failed. Invalid values. params: A='abc', B='4', C='5'

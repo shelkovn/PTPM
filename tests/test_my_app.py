@@ -30,7 +30,7 @@ class TestTriangleIntegration(unittest.TestCase):
         )
 
     def test_1_successful_triangle_calculation_and_saving(self):
-        #imitate user input
+        #imitate user input via mock
         self.view.get_user_data.return_value = ["3", "4", "5"]
 
         result = self.controller.start_new_scenario()
