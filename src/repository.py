@@ -1,16 +1,16 @@
 import sqlite3
 from dataclasses import dataclass
-from typing import Optional, Tuple
+from typing import Optional
 
 
 @dataclass
-class comment:
+class Comment:
     #username
     name: str
     
     message: str
 
-    id: Optional[int] = None
+    id: int
 
 
 class DatabaseRepository:
@@ -45,11 +45,11 @@ class DatabaseRepository:
         if (id < 0):
             raise Exception("Negative ID")
 
-        if (username == None or username.length < 1):
+        if (username == None or username.strip().length < 1):
             raise Exception("Empty username")
 
-        if (username == None or username.length < 1):
-            raise Exception("Empty username")
+        if (message == None or message.strip().length < 1):
+            raise Exception("Empty message")
         
         query = """
             INSERT INTO comments (
@@ -58,8 +58,8 @@ class DatabaseRepository:
         """
         params = (
             comment_id,
-            username,
-            message
+            username.strip(),
+            message.strip()
         )
 
         with self._get_connection() as conn:
@@ -68,66 +68,59 @@ class DatabaseRepository:
             conn.commit()
             return True
         
-    def get_by_id(comment_id: int, username:str, nessage:str) -> Optional[Triangle]:
-        query = "SELECT * FROM triangles WHERE side_a = ? AND side_b = ? AND side_c = ?"
+    def get_by_id(self, comment_id: int) -> Optional[Comment]:
+        query = "SELECT * FROM comments WHERE id = ?"
         with self._get_connection() as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
-            cursor.execute(query, (side_a, side_b, side_c))
+            cursor.execute(query, id)
             row = cursor.fetchone()
 
             if not row:
                 return None
 
-            return Triangle(
+            return Comment(
                 id=row["id"],
-                side_a=row["side_a"],
-                side_b=row["side_b"],
-                side_c=row["side_c"],
-                coord_a=(row["coord_a_x"], row["coord_a_y"]),
-                coord_b=(row["coord_b_x"], row["coord_b_y"]),
-                coord_c=(row["coord_c_x"], row["coord_c_y"]),
-                triangle_type=row["triangle_type"],
-                error_message=row["error_message"],
+                name=row["name"],
+                message=row["message"],
             )
 
-
-    def delete_by_sides(self, side_a: str, side_b: str, side_c: str) -> bool:
-        query = """
-        DELETE FROM triangles 
-        WHERE id = (
-            SELECT id FROM triangles 
-            WHERE side_a = ? AND side_b = ? AND side_c = ? 
-            LIMIT 1
-        );
-        """
-        with self._get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute(query, (side_a, side_b, side_c))
-            conn.commit()
-            return cursor.rowcount > 0
-    
-    def fetch_by_sides(
-        self, side_a: str, side_b: str, side_c: str
-    ) -> Optional[Triangle]:
-        query = "SELECT * FROM triangles WHERE side_a = ? AND side_b = ? AND side_c = ?"
+    def get_by_name(self, username: str) -> Optional[Comment]:
+        query = "SELECT * FROM comments WHERE name = ?"
         with self._get_connection() as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
-            cursor.execute(query, (side_a, side_b, side_c))
+            cursor.execute(query, username)
             row = cursor.fetchone()
 
             if not row:
                 return None
 
-            return Triangle(
+            return Comment(
                 id=row["id"],
-                side_a=row["side_a"],
-                side_b=row["side_b"],
-                side_c=row["side_c"],
-                coord_a=(row["coord_a_x"], row["coord_a_y"]),
-                coord_b=(row["coord_b_x"], row["coord_b_y"]),
-                coord_c=(row["coord_c_x"], row["coord_c_y"]),
-                triangle_type=row["triangle_type"],
-                error_message=row["error_message"],
+                name=row["name"],
+                message=row["message"],
             )
+
+    def update(self, comment_id: int, new_message: str) -> bool:
+
+        try:
+            id = int(comment_id)
+        except (ValueError, TypeError):
+            raise Exception("Not an int ID")
+
+        if (id < 0):
+            raise Exception("Negative ID")
+
+        if (new_message == None or new_message.strip().length < 1):
+            raise Exception("Empty message")
+        
+        with sqlite3.connect("database.db") as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "UPDATE comments SET message = ? WHERE id = ?",
+                (new_message.strip(), comment_id),
+            )
+        conn.commit()
+
+        return cursor.rowcount > 0
