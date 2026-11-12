@@ -1,21 +1,28 @@
 import sqlite3
-from dataclasses import dataclass
 from typing import Optional
 from src.logger import logger
 import textwrap
+from comment import Comment
+from abc import ABC, abstractmethod
 
+class DBRInterface(ABC):
+    @abstractmethod
+    def add(comment_id: int, username: str, message: str) -> bool:
+        pass
 
-@dataclass
-class Comment:
-    #username
-    name: str
-    
-    message: str
+    @abstractmethod
+    def get_by_id(comment_id: int) -> Optional[Comment]:
+        pass
 
-    id: int
+    @abstractmethod
+    def get_by_name(username: str) -> Optional[Comment]:
+        pass
 
+    @abstractmethod
+    def update(self, comment_id: int, new_message: str) -> bool:
+        pass
 
-class DatabaseRepository:
+class DatabaseRepository(DBRInterface):
 
     def __init__(self, db_path: str = ":memory:"):
         self.db_path = db_path

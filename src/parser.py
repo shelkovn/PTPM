@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from src.repository import Comment
+from src.comment import Comment
 from src.logger import logger
 import re
 
