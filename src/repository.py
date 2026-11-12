@@ -1,7 +1,8 @@
 import sqlite3
 from dataclasses import dataclass
 from typing import Optional
-from logger import logger
+from src.logger import logger
+import textwrap
 
 
 @dataclass
@@ -42,24 +43,16 @@ class DatabaseRepository:
         try:
             id = int(comment_id)
         except (ValueError, TypeError):
-            logger.exception(f"db error, could not parse id {id}, not an int")
-            #raise Exception("Not an int ID")
-            return False
+            raise Exception("Not an int ID")
 
         if (id < 0):
-            logger.exception(f"db error, could not parse id {id}, negative")
-            #raise Exception("Negative ID")
-            return False
+            raise Exception("Negative ID")
 
         if (username == None or username.strip().length < 1):
-            logger.exception(f"db error, empty username, id {id}")
-            #raise Exception("Empty username")
-            return False
+            raise Exception("Empty username")
 
         if (message == None or message.strip().length < 1):
-            logger.exception(f"db error, empty message, id {id}")
-            #raise Exception("Empty message")
-            return False
+            raise Exception("Empty message")
         
         query = """
             INSERT INTO comments (
@@ -71,7 +64,7 @@ class DatabaseRepository:
             username.strip(),
             message.strip()
         )
-
+        logger.info(f"adding comment {id} by {username.strip()}: {textwrap.shorten(message.strip(), width=20, placeholder="...")}")
         with self._get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute(query, params)
@@ -123,11 +116,9 @@ class DatabaseRepository:
             raise Exception("Not an int ID")
 
         if (id < 0):
-            logger.exception(f"db error, could not parse id {id}, negative")
             raise Exception("Negative ID")
 
         if (new_message == None or new_message.strip().length < 1):
-            logger.exception(f"db error, could not parse id {id}, negative")
             raise Exception("Empty message")
         
         with sqlite3.connect("database.db") as conn:
