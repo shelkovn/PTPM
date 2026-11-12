@@ -20,6 +20,4 @@ logging.basicConfig(
     ]
 )
 
-logging.info("logger initialized")
-
 logger = logging.getLogger("comment_parser")
