@@ -1,6 +1,7 @@
 import sqlite3
 from dataclasses import dataclass
 from typing import Optional
+from logger import logger
 
 
 @dataclass
@@ -32,6 +33,7 @@ class DatabaseRepository:
             message TEXT NOT NULL,
         );
         """
+        logger.info("db set up, comments table created")
         with self._get_connection() as conn:
             conn.execute(query)
 
@@ -40,16 +42,24 @@ class DatabaseRepository:
         try:
             id = int(comment_id)
         except (ValueError, TypeError):
-            raise Exception("Not an int ID")
+            logger.exception(f"db error, could not parse id {id}, not an int")
+            #raise Exception("Not an int ID")
+            return False
 
         if (id < 0):
-            raise Exception("Negative ID")
+            logger.exception(f"db error, could not parse id {id}, negative")
+            #raise Exception("Negative ID")
+            return False
 
         if (username == None or username.strip().length < 1):
-            raise Exception("Empty username")
+            logger.exception(f"db error, empty username, id {id}")
+            #raise Exception("Empty username")
+            return False
 
         if (message == None or message.strip().length < 1):
-            raise Exception("Empty message")
+            logger.exception(f"db error, empty message, id {id}")
+            #raise Exception("Empty message")
+            return False
         
         query = """
             INSERT INTO comments (
@@ -77,6 +87,7 @@ class DatabaseRepository:
             row = cursor.fetchone()
 
             if not row:
+                logger.info(f"db could not find id {id}")
                 return None
 
             return Comment(
@@ -94,6 +105,7 @@ class DatabaseRepository:
             row = cursor.fetchone()
 
             if not row:
+                logger.info(f"db could not find name {username}")
                 return None
 
             return Comment(
@@ -107,12 +119,15 @@ class DatabaseRepository:
         try:
             id = int(comment_id)
         except (ValueError, TypeError):
+            logger.exception(f"db error on updating id={id}, new_message={new_message}")
             raise Exception("Not an int ID")
 
         if (id < 0):
+            logger.exception(f"db error, could not parse id {id}, negative")
             raise Exception("Negative ID")
 
         if (new_message == None or new_message.strip().length < 1):
+            logger.exception(f"db error, could not parse id {id}, negative")
             raise Exception("Empty message")
         
         with sqlite3.connect("database.db") as conn:
@@ -122,5 +137,6 @@ class DatabaseRepository:
                 (new_message.strip(), comment_id),
             )
         conn.commit()
+        logger.info(f"db commit, updating id={id}, new_message={new_message}")
 
         return cursor.rowcount > 0
