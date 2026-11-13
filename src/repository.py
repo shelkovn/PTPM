@@ -2,7 +2,7 @@ import sqlite3
 from typing import Optional
 from src.logger import logger
 import textwrap
-from comment import Comment
+from src.comment import Comment
 from abc import ABC, abstractmethod
 
 class DBRInterface(ABC):
@@ -38,7 +38,7 @@ class DatabaseRepository(DBRInterface):
         CREATE TABLE IF NOT EXISTS comments (
             id INTEGER PRIMARY KEY,
             name TEXT NOT NULL,
-            message TEXT NOT NULL,
+            message TEXT NOT NULL
         );
         """
         logger.info("db set up, comments table created")
@@ -55,10 +55,10 @@ class DatabaseRepository(DBRInterface):
         if (id < 0):
             raise Exception("Negative ID")
 
-        if (username == None or username.strip().length < 1):
+        if (username == None or len(username.strip()) < 1):
             raise Exception("Empty username")
 
-        if (message == None or message.strip().length < 1):
+        if (message == None or len(message.strip()) < 1):
             raise Exception("Empty message")
         
         query = """
@@ -79,11 +79,16 @@ class DatabaseRepository(DBRInterface):
             return True
         
     def get_by_id(self, comment_id: int) -> Optional[Comment]:
+        try:
+            id = int(comment_id)
+        except (ValueError, TypeError):
+            logger.exception(f"db error on lookup id {comment_id} is not an int")
+            raise Exception("Not an int ID")
         query = "SELECT * FROM comments WHERE id = ?"
         with self._get_connection() as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
-            cursor.execute(query, id)
+            cursor.execute(query, (id,))
             row = cursor.fetchone()
 
             if not row:
@@ -125,7 +130,7 @@ class DatabaseRepository(DBRInterface):
         if (id < 0):
             raise Exception("Negative ID")
 
-        if (new_message == None or new_message.strip().length < 1):
+        if (new_message == None or len(new_message.strip()) < 1):
             raise Exception("Empty message")
         
         with sqlite3.connect("database.db") as conn:
