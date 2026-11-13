@@ -4,6 +4,7 @@ from src.logger import logger
 import re
 
 def parse_page(page: str) -> list[Comment]:
+    """tailored to GameFAQs.gamespot.com boards"""
     soup = BeautifulSoup(page, 'html.parser')
     messages = soup.findAll("td", class_="msg")
     logger.info(f"parser found {len(messages)} messages")
