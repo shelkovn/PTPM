@@ -71,7 +71,7 @@ class DatabaseRepository(DBRInterface):
             username.strip(),
             message.strip()
         )
-        logger.info(f"adding comment {id} by {username.strip()}: {textwrap.shorten(message.strip(), width=20, placeholder="...")}")
+        logger.info(f"adding comment {id} by {username.strip()}: {textwrap.shorten(message.strip(), width=30, placeholder="...")}")
         with self._get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute(query, params)
