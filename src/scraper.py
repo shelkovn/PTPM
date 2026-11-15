@@ -10,7 +10,6 @@ class HTMLScraperOutput:
 
 def scrape_page(
     url: str 
-    #agent_name: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 ) -> HTMLScraperOutput:
     """returns a HTMLScraperOutput with success:True and the result of the request in contents.
     in case of an error, HTMLScraperOutput will have success:false and the exception details in contents"""
