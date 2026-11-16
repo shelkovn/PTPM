@@ -49,7 +49,7 @@ class DatabaseRepository(DBRInterface):
 
         try:
             id = int(comment_id)
-        except (ValueError, TypeError):
+        except :
             raise Exception("Not an int ID")
 
         if (id < 0):
@@ -67,7 +67,7 @@ class DatabaseRepository(DBRInterface):
             ) VALUES (?, ?, ?);
         """
         params = (
-            comment_id,
+            id,
             username.strip(),
             message.strip()
         )
@@ -76,12 +76,12 @@ class DatabaseRepository(DBRInterface):
             cursor = conn.cursor()
             cursor.execute(query, params)
             conn.commit()
-            return True
+        return True
         
     def get_by_id(self, comment_id: int) -> Optional[Comment]:
         try:
             id = int(comment_id)
-        except (ValueError, TypeError):
+        except:
             logger.exception(f"db error on lookup id {comment_id} is not an int")
             raise Exception("Not an int ID")
         query = "SELECT * FROM comments WHERE id = ?"
@@ -106,7 +106,7 @@ class DatabaseRepository(DBRInterface):
         with self._get_connection() as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
-            cursor.execute(query, username)
+            cursor.execute(query, (username,))
             row = cursor.fetchone()
 
             if not row:
@@ -123,8 +123,8 @@ class DatabaseRepository(DBRInterface):
 
         try:
             id = int(comment_id)
-        except (ValueError, TypeError):
-            logger.exception(f"db error on updating id={id}, new_message={new_message}")
+        except:
+            logger.exception(f"db error on updating id={comment_id}, new_message={new_message}")
             raise Exception("Not an int ID")
 
         if (id < 0):
@@ -133,11 +133,11 @@ class DatabaseRepository(DBRInterface):
         if (new_message == None or len(new_message.strip()) < 1):
             raise Exception("Empty message")
         
-        with sqlite3.connect("database.db") as conn:
+        with self._get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute(
                 "UPDATE comments SET message = ? WHERE id = ?",
-                (new_message.strip(), comment_id),
+                (new_message.strip(), id),
             )
         conn.commit()
         logger.info(f"db commit, updating id={id}, new_message={new_message}")
