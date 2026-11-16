@@ -143,13 +143,7 @@ class RepositoryGetByNameTests(unittest.TestCase):
 class RepositoryUpdateTests(unittest.TestCase):
 
     def setUp(self):
-        tmp = tempfile.mkdtemp()
-        self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)
-        old_cwd = os.getcwd()
-        os.chdir(tmp)
-        self.addCleanup(os.chdir, old_cwd)
-
-        self.repo = DatabaseRepository("database.db")
+        self.repo = DatabaseRepository(":memory:")
         self.addCleanup(self.repo._conn.close)
         self.repo.add(1, "alice", "original message")
 
