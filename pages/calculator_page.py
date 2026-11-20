@@ -5,6 +5,10 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class CalculatorPage():
+    def __init__(self, driver, timeout=10):
+        self.driver = driver
+        self.wait = WebDriverWait(driver, timeout)
+
     def _find(self, locator):
         return self.wait.until(EC.presence_of_element_located(locator))
 
@@ -55,7 +59,7 @@ class CalculatorPage():
     def get_a(self) -> str:
         return self.get_value(self.__A_INPUT)
 
-    def get_B(self) -> str:
+    def get_b(self) -> str:
             return self.get_value(self.__B_INPUT)
 
     def select_operation(self, operation_value: str):
@@ -69,8 +73,7 @@ class CalculatorPage():
         return self.get_text(self.__RESULT_LABEL)
 
     def calculate(self, a, b, operation):
-        self.enter_first_number(a)
-        self.enter_second_number(b)
+        self.enter_a(a)
+        self.enter_b(b)
         self.select_operation(operation)
-        self.click_calculate()
         return self.get_result()
